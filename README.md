@@ -43,7 +43,7 @@ client.start()
 | `partMessage` | Message when the lib parts from a channel | `[IrcLib] Good Bye.` | `No` |
 | `quitMessage` | Message when the lib disconnects from the server | `[IrcLib] Good Bye.` | `No` |
 | `password` | Password of the server | `''` | `No` |
-| `encoding` | Text encoding | `utf-8` | `No` |
+| `encoding` | Text encoding | `utf8` | `No` |
 | `version` | Response text of the CTCP version | Version info in the package.json of your application | `No` |
 | `user` | User information | N/A | `Yes` |
 |   `nickname` | Initial nickname | N/A | `Yes` |
