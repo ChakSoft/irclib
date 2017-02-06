@@ -1,0 +1,22 @@
+{
+  "name": "irclib",
+  "version": "1.0.0-beta.1",
+  "description": "Library for IRC clients",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChakSoft/irclib.git"
+  },
+  "author": "Michael Chacaton <chako256@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ChakSoft/irclib/issues"
+  },
+  "homepage": "https://github.com/ChakSoft/irclib#readme",
+  "dependencies": {
+    "bluebird": "^3.4.7"
+  }
+}
