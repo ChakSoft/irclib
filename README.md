@@ -27,9 +27,6 @@ const options = {
 
 const client = new Client(options)
 client.start()
-    .then(() => {
-        console.log('Started.')
-    })
 ```
 
 ### Options
@@ -56,21 +53,28 @@ client.start()
 
 ### Events
 
-| Event | Description | Arguments |
-| ----- | ----------- | --------- |
-| `pubmsg` | Event received when a message is sent to a channel | `(sender, channel, message)` |
-| `privmsg` | Event received when a message is sent to the user | `(sender, message)` |
-| `pubnotice` | Event received when a notice is sent to a channel | `(sender, channel, notice)` |
-| `privnotice` | Event received when a notice is sent to the user | `(sender, notice)` |
-| `join` | Event received when an user joins a channel | `(sender, channel)` |
-| `part` | Event received when another user parts from a channel | `(sender, channel, partMessage)` |
-| `quit` | Event receievd when another user quits | `(sender, channel, quitMessage)` |
-| `error` | Event received when the IRC server emits an error | `(error)` |
-| `nick` | Event received when an user changes his nickname | `(sender, nickname)` |
-| `kick` | Event received when an user is kicked from a channel | `(sender, channel, target, reason = '')` |
-| `ping` | Event received on a PING request | `(sender, pingId)` |
-| `invite` | Event received when another user invites the user on a channel | `(sender, channel)` |
-| `mode` | Event received when a mode is changed | `(sender, mode)` |
+| Event | Description |
+| ----- | ----------- |
+| `pubmsg` | Event received when a message is sent to a channel |
+| `privmsg` | Event received when a message is sent to the user |
+| `pubnotice` | Event received when a notice is sent to a channel |
+| `privnotice` | Event received when a notice is sent to the user |
+| `join` | Event received when an user joins a channel |
+| `part` | Event received when another user parts from a channel |
+| `quit` | Event receievd when another user quits |
+| `error` | Event received when the IRC server emits an error |
+| `nick` | Event received when an user changes his nickname |
+| `kick` | Event received when an user is kicked from a channel |
+| `ping` | Event received on a PING request |
+| `invite` | Event received when another user invites the user on a channel |
+| `mode` | Event received when a mode is changed |
+
+Every event callback takes 4 arguments :
+
+* `sender`: User information of the sender
+* `middle`: Middle information of the message
+* `params`: Array with other middle information
+* `trailing`: Trailing text of the message
 
 There is a complete list of other events [on this page](https://www.alien.net.au/irc/irc2numerics.html).
 Every event can be bound by its numeric code or by a short version of the name. Example : `RPL_WELCOME` is bound to the `welcome` event.
@@ -100,9 +104,36 @@ client.component(require('./pubmsg'))
 `on(event, callback)`
     
 Registers an event with a callback.
-Returns the client to allow event chaning.
+Returns the client to allow event chaining.
 
 `start()`
     
 Starts the client by establishing the connection and listening for incoming data.
-Returns a [Bluebird](https://github.com/petkaantonov/bluebird) promise.
+
+`privmsg(target, message)`
+
+Sends a message to a channel or an user identified by `target`.
+
+`notice(target, message)`
+
+Sends a notice to a channel or an user identified by `target`.
+
+`action(target, message)`
+
+Sends a mIRC-styled action message (`/me`) to a channel or a user identified by `target`.
+
+`join(target)`
+
+Sends a join message to enter a channel identified by `target`.
+
+`part(target, message)`
+
+Sends a part message to leave a channel identified by `target` before leaving the channel.
+
+`quit(message)`
+
+Sends a quit message to the server before quitting the network.
+
+`mode(channel, modificators, targets = [])`
+
+Sends a mode message on a `channel` with inline `modificators`, eventually applied to `targets`.
