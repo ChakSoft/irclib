@@ -36,7 +36,7 @@ client.start()
 | `host` | IP Address or hostname | N/A | `Yes` |
 | `port` | Port | 6667 | `No` |
 | `ssl` | SSL engine | `No` | `No` |
-| `channels` | List of default join channels | `{}` | `No` |
+| `channels` | List of default join channels | `[]` | `No` |
 | `partMessage` | Message when the lib parts from a channel | `[IrcLib] Good Bye.` | `No` |
 | `quitMessage` | Message when the lib disconnects from the server | `[IrcLib] Good Bye.` | `No` |
 | `password` | Password of the server | `''` | `No` |
