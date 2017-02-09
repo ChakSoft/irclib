@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ChakSoft/irclib#readme",
   "dependencies": {
-    "bluebird": "^3.4.7"
+    "bluebird": "^3.4.7",
+    "forward-emitter": "^0.1.1"
   }
 }
