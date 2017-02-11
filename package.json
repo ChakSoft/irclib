@@ -1,6 +1,6 @@
 {
   "name": "irclib",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Library for IRC clients",
   "main": "index.js",
   "scripts": {
