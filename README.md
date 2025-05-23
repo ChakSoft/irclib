@@ -2,6 +2,10 @@
 
 Library for making IRC clients
 
+## REPOSITORY HAS BEEN ARCHIVED AND WILL NOT BE MAINTAINED
+
+Please check our new IRC Library : https://npmjs.com/package/modernirc
+
 ## Table of Contents
 
 1. [Installation](#installation)
